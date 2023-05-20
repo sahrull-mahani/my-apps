@@ -1,0 +1,140 @@
+.reset-table {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-image: none;
+}
+
+.tb-100 {
+    width: 100%;
+}
+
+.tb-75 {
+    width: 75%;
+}
+
+.tb-50 {
+    width: 50%;
+}
+
+.tb-25 {
+    width: 25%;
+}
+
+.tb-h-1 tr td {
+    height: 2rem;
+}
+
+.tb-h-2 tr td {
+    height: 4rem;
+}
+
+.tb-v-top td,
+th {
+    vertical-align: top;
+}
+
+.kop-first {
+    font-size: 15pt;
+}
+
+.kop-second {
+    font-size: 11pt;
+}
+
+.fs-italic {
+    font-style: italic;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.fs-underline {
+    text-decoration: underline;
+}
+
+.text-up {
+    text-transform: uppercase;
+}
+
+.text-cap {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.divider.odd {
+    margin-top: 5px;
+    border-bottom: 2px solid #000;
+}
+
+.divider.even {
+    margin-top: 2px;
+    border-bottom: 3px solid #000;
+}
+
+.mt-1 {
+    margin-top: 1em;
+}
+
+.mt-2 {
+    margin-top: 2em;
+}
+
+.mt-3 {
+    margin-top: 3em;
+}
+
+.mt-4 {
+    margin-top: 4em;
+}
+
+.mt-5 {
+    margin-top: 5em;
+}
+
+.mb-1 {
+    margin-bottom: 1em;
+}
+
+.mb-2 {
+    margin-bottom: 2em;
+}
+
+.mb-3 {
+    margin-bottom: 3em;
+}
+
+.mb-4 {
+    margin-bottom: 4em;
+}
+
+.mb-5 {
+    margin-bottom: 5em;
+}
+
+ol {
+    counter-reset: item;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+}

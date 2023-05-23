@@ -30,13 +30,7 @@
                         <a class="nav-link active" aria-current="page" href="#">SPT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">SPD</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link" href="#">SPPD</a>
                     </li>
                 </ul>
             </div>
@@ -45,6 +39,21 @@
 
     <div class="container mt-5">
         <form action="<?= site_url('print') ?>" method="post">
+            <div class="mb-3">
+                <label for="to" class="form-label">Kadis atau bukan?</label>
+                <select class="form-select" id="to" name="to">
+                    <option value="kadis" selected>Kadis</option>
+                    <option value="thl">THL</option>
+                    <option value="pns">PNS</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="font" class="form-label">Font</label>
+                <select class="form-select" id="font" name="font">
+                    <option value="Bookman Old Style" selected>Bookman Old Style</option>
+                    <option value="tahoma">Tahoma</option>
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="nomor" class="form-label">Nomor</label>
                 <input type="number" min="1" class="form-control" id="nomor" name="nomor">
@@ -60,14 +69,20 @@
                     </span>
                 </div>
             </div>
-            <div class="wrapper">
+            <div class="wrapper mb-3">
                 <label>Kepada</label>
                 <div class="element">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-1">
                         <span class="input-group-text" id="basic-addon1">Nama</span>
                         <input type="text" class="form-control" placeholder="Nama" name="nama[]" required>
                         <span class="input-group-text">Jabatan</span>
                         <input type="text" class="form-control" placeholder="Jabatan" name="jabatan[]" required>
+                    </div>
+                    <div class="input-group mb-1" id="nip">
+                        <span class="input-group-text" id="basic-addon1">NIP</span>
+                        <input type="text" class="form-control" placeholder="NIP" name="nip[]" required>
+                        <span class="input-group-text">Pangkat</span>
+                        <input type="text" class="form-control" placeholder="Pangkat" name="pangkat[]" required>
                     </div>
                 </div>
                 <div class="results"></div>

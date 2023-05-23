@@ -57,8 +57,15 @@ th {
     font-size: 15pt;
 }
 
+.kop-first-kadis {
+    font-size: 18pt;
+}
+
 .kop-second {
     font-size: 11pt;
+}
+.kop-second-kadis {
+    font-size: 14pt;
 }
 
 .fs-italic {

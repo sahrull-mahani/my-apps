@@ -65,3 +65,22 @@ $('#copy-text').on('click', function () {
         $(this).removeClass('active')
     }, 2500)
 })
+
+$('#to').on('change', function () {
+    let val = $(this).val()
+
+    switch (val) {
+        case 'kadis':
+            $('#nip').show()
+            break
+        case 'thl':
+            $('#nip').hide()
+            break
+        case 'pns':
+            $('#nip').show()
+            break
+        default:
+            alert('other')
+            break
+    }
+})

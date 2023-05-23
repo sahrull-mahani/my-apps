@@ -37,6 +37,22 @@ th {
     vertical-align: top;
 }
 
+.tb-td-h-1 {
+    height: 2.5em;
+}
+
+.tb-td-h-2 {
+    height: 5em;
+}
+
+.tb-td-h-3 {
+    height: 7.5em;
+}
+
+.tb-td-h-4 {
+    height: 10em;
+}
+
 .kop-first {
     font-size: 15pt;
 }
@@ -131,10 +147,6 @@ th {
     margin-bottom: 5em;
 }
 
-ol {
-    counter-reset: item;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: justify;
+.bt-1 {
+    border-bottom: 1px solid black;
 }

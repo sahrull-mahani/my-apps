@@ -1,5 +1,5 @@
 <div class="kop-first fw-bold fs-underline text-up text-center">surat perintah tugas</div>
-<div class="kop-second fw-bold text-center">Nomor: 090/001/KOMINFO/VI/2023</div>
+<div class="kop-second fw-bold text-center">Nomor: <?= "090/$nomor/KOMINFO/" . bulantoromawi(date('m')) . date('/Y') ?></div>
 
 <table class="tb-100 tb-v-top mt-2">
     <tr>
@@ -11,16 +11,20 @@
                     <td width="25">1.</td>
                     <td class="text-justify">Peraturan Bupati Bolaang Mongondow Utara Nomor 01 Tahun 2023 Tentang Perjalanan Dinas Bagi Pejabat Negara, Pimpinan dan Anggota Dewan Perwakilan Rakyat Daerah, Aparat Sipil Negara, Pejabat lainnya dan Tenaga Karyawan Lepas Tahun 2023</td>
                 </tr>
-                <tr>
-                    <td width="25">2.</td>
-                    <td class="text-justify">Surat KPP Pratama Kotamobagu nomor : S-1884/KPP.1607/2022 dan Surat KPP Pratama Kotamobagu Nomor : S-33/KPP.1607/2023 Tentang Imbauan Pemenuhan Kewajiban Perpajakan Instansi Pemerintah Daerah.</td>
-                </tr>
+                <?php if ($dasar != null) : ?>
+                    <?php foreach ($dasar as $key => $row) : ?>
+                        <tr>
+                            <td width="25"><?= $key + 2 . '.' ?></td>
+                            <td class="text-justify"><?= $row ?></td>
+                        </tr>
+                    <?php endforeach ?>
+                <?php endif ?>
             </table>
         </td>
     </tr>
 </table>
 
-<div class="kop-first fw-bold fs-underline text-up text-center mt-3">menugaskan</div>
+<div class="fw-bold text-up text-center mt-2">menugaskan</div>
 
 <table class="tb-100 tb-v-top mt-2">
     <tr>
@@ -28,50 +32,35 @@
         <td width="30">:</td>
         <td>
             <table class="reset-table tb-100">
-                <tr>
-                    <td width="25">1.</td>
-                    <td>
-                        <table class="reset-table tb-100 tb-h-1">
-                            <tr>
-                                <td>Nama</td>
-                                <td>:</td>
-                                <td class="fw-bold">Fidia A. Lasipu</td>
-                            </tr>
-                            <tr>
-                                <td>Jabatan</td>
-                                <td>:</td>
-                                <td>Tenaga Harian Lepas  Dinas Komunikasi Informatika dan Persandian Kab. Bolaang Mongondow Utara</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25">2.</td>
-                    <td>
-                        <table class="reset-table tb-100 tb-h-1">
-                            <tr>
-                                <td>Nama</td>
-                                <td>:</td>
-                                <td class="fw-bold">Mohamad Syahrur Mahani</td>
-                            </tr>
-                            <tr>
-                                <td>Jabatan</td>
-                                <td>:</td>
-                                <td>Tenaga Ahli (programmer)  Dinas Komunikasi Informatika dan Persandian Kab. Bolaang Mongondow Utara</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+                <?php foreach ($kepada as $key => $row) : ?>
+                    <tr>
+                        <td width="25"><?= $key + 1 . '.' ?></td>
+                        <td>
+                            <table class="reset-table tb-100 tb-h-1">
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>:</td>
+                                    <td class="fw-bold"><?= $row->nama ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Jabatan</td>
+                                    <td>:</td>
+                                    <td><?= $row->jabatan ?></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
             </table>
         </td>
     </tr>
 </table>
 
-<table class="tb-100 tb-v-top mt-2">
+<table class="tb-100 tb-v-top mt-1">
     <tr>
         <td width="180">Tujuan</td>
         <td width="30">:</td>
-        <td>Kantor Pelayanan Pajak Pratama Kotamobagu</td>
+        <td><?= $tujuan ?></td>
     </tr>
 </table>
 
@@ -79,7 +68,7 @@
     <tr>
         <td width="180">Maksud</td>
         <td width="30">:</td>
-        <td>Mendampingi Bendahara Pengeluaran Melakukan Pelaporan SPT Masa Unifikasi dan Pph 21 Instansi Pemerintah Daerah Sesuai PMK 59/PMK.03/2022</td>
+        <td><?= $maksud ?></td>
     </tr>
 </table>
 
@@ -87,7 +76,7 @@
     <tr>
         <td width="180">Jumlah Hari</td>
         <td width="30">:</td>
-        <td>3 (Tiga) hari TMT 10 Mei s/d 13 Mei 2023</td>
+        <td><?= tmtDate($jumlah) ?></td>
     </tr>
 </table>
 
@@ -95,8 +84,51 @@
     <tr>
         <td width="180">Pembebanan Biaya</td>
         <td width="30">:</td>
-        <td>APBD Tahun 2023</td>
+        <td><?= $biaya ?></td>
     </tr>
 </table>
 
 Agar melaporkan hasil perjalanannya sekembali dari tugas dimaksud. Demikian Perintah Tugas ini dibuat untuk dilaksanakan dengan penuh tanggung jawab.
+
+<table class="tb-100 mt-2">
+    <tr>
+        <td width="350"></td>
+        <td>
+            <table class="tb-100 bt-1">
+                <tr>
+                    <td>Dikeluarkan di</td>
+                    <td>:</td>
+                    <td>B o r o k o</td>
+                </tr>
+                <tr>
+                    <td>Pada Tanggal</td>
+                    <td>:</td>
+                    <td><?= date('d') . ' ' . getBulan(date('m')) . ' ' . date('Y') ?></td>
+                </tr>
+            </table>
+
+            <table class="tb-100 mt-1">
+                <tr>
+                    <td align="center" class="fw-bold kop-second text-up">Kepala Dinas</td>
+                </tr>
+                <tr>
+                    <td align="center" class="fw-bold text-up kop-second">Komunikasi Informatika dan Persandian</td>
+                </tr>
+                <tr>
+                    <td align="center" class="tb-td-h-2"></td>
+                </tr>
+                <tr>
+                    <td align="center" class="fw-bold fs-underline kop-second">Aang Wardiman, AK.CA.,CertDA.,CTT</td>
+                </tr>
+                <tr>
+                    <td align="center" class="fw-bold kop-second">Pembina Utama Muda IV/c</td>
+                </tr>
+                <tr>
+                    <td align="center" class="fw-bold kop-second">NIP. 19641024 198603 1 002</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<div class="fs-italic mt-1">Tembusan : Arsip,-</div>

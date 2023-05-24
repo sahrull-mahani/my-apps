@@ -10,7 +10,7 @@
         <td width="180">Dasar</td>
         <td width="30">:</td>
         <td>
-            <table class="reset-table tb-100">
+            <table class="reset-table borderless tb-100">
                 <tr>
                     <td width="25">1.</td>
                     <td class="text-justify">Peraturan Bupati Bolaang Mongondow Utara Nomor 01 Tahun 2023 Tentang Perjalanan Dinas Bagi Pejabat Negara, Pimpinan dan Anggota Dewan Perwakilan Rakyat Daerah, Aparat Sipil Negara, Pejabat lainnya dan Tenaga Karyawan Lepas Tahun 2023;</td>

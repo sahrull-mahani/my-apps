@@ -30,7 +30,10 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/sppd-form', 'Home::sppd');
+
 $routes->post('/print-spt', 'Home::print_spt');
+$routes->post('/print-sppd', 'Home::print_sppd');
 
 /*
  * --------------------------------------------------------------------

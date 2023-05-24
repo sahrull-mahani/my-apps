@@ -2,10 +2,36 @@
     margin: 0;
     padding: 0;
     background: none;
-    border: none;
     border-collapse: collapse;
     border-spacing: 0;
     background-image: none;
+}
+
+.borderless {
+    border: none;
+}
+.no-border-top {
+    border-top: none;
+}
+
+.border-1 {
+    border: 1;
+}
+
+.border-right-1 {
+    border-right: 1px solid black;
+}
+
+.border-top-1 {
+    border-top: 1px solid black;
+}
+
+.border-top-1 tr td {
+    border-top: 1px solid black;
+}
+
+.border-bottom-1 {
+    border-bottom: 1px solid black;
 }
 
 .tb-100 {
@@ -36,6 +62,17 @@
 th {
     vertical-align: top;
 }
+.tb-v-top-single {
+    vertical-align: top;
+}
+
+.tb-td-th-0 {
+    height: 0;
+}
+
+.tb-td-h-01 {
+    height: 1em;
+}
 
 .tb-td-h-1 {
     height: 2.5em;
@@ -53,6 +90,13 @@ th {
     height: 10em;
 }
 
+.tb-padding-1 tr td {
+    padding: 5px;
+}
+.tb-padding-x-1 tr td {
+    padding: 0 5px;
+}
+
 .kop-first {
     font-size: 15pt;
 }
@@ -61,11 +105,20 @@ th {
     font-size: 18pt;
 }
 
+.kop-first-sppd {
+    font-size: 14pt;
+}
+
 .kop-second {
     font-size: 11pt;
 }
+
 .kop-second-kadis {
     font-size: 14pt;
+}
+
+.kop-second-sppd {
+    font-size: 16pt;
 }
 
 .fs-italic {
@@ -114,6 +167,10 @@ th {
     border-bottom: 3px solid #000;
 }
 
+.mt-0 {
+    margin-top: 0;
+}
+
 .mt-1 {
     margin-top: 1em;
 }
@@ -134,6 +191,10 @@ th {
     margin-top: 5em;
 }
 
+.mb-0 {
+    margin-bottom: 0;
+}
+
 .mb-1 {
     margin-bottom: 1em;
 }
@@ -152,6 +213,10 @@ th {
 
 .mb-5 {
     margin-bottom: 5em;
+}
+
+.pd-0 {
+    padding: 0;
 }
 
 .bt-1 {

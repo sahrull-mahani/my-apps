@@ -23,14 +23,18 @@ class Home extends BaseController
             array_push($kepada, (object)[
                 'nama'=>$row,
                 'jabatan'=>$jabatan[$key],
-                'nip'=>$nip[$key],
-                'pangkat'=>$pangkat[$key],
+                'nip'=>$nip[$key] ?? null,
+                'pangkat'=>$pangkat[$key] ?? null,
             ]);
         }
         $dasar = $this->request->getPost('dasar');
         $data_header = [
             'to'        => $to
         ];
+        $jumlah = $this->request->getPost('jumlah');
+        if ($jumlah === null || $jumlah == 'kosong') {
+            $jumlah = null;
+        }
         $data = [
             'to'        => $to,
             'nomor'     => empty($nomor) ? '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' : sprintf('%02d', $nomor),
@@ -38,7 +42,7 @@ class Home extends BaseController
             'kepada'    => $kepada,
             'tujuan'    => $this->request->getPost('tujuan'),
             'maksud'    => $this->request->getPost('maksud'),
-            'jumlah'    => $this->request->getPost('jumlah'),
+            'jumlah'    => $jumlah,
             'biaya'     => 'APBD Tahun ' . date('Y')
         ];
         $format = [
@@ -47,7 +51,7 @@ class Home extends BaseController
             'default_font_size' => 12,
             'margin_left' => 10,
             'margin_right' => 15,
-            'margin_top' => 52,
+            'margin_top' => $to == 'kadis' ? 52 : 45,
             'margin_bottom' => 10,
             'margin_header' => 10,
             'margin_footer' => 9,

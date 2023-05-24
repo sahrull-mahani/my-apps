@@ -84,3 +84,16 @@ $('#to').on('change', function () {
             break
     }
 })
+
+var on = 1
+$('#null-tanggal').on('click', function() {
+    if (on == 1) {
+        $('#jumlah').addClass('bg-disabled')
+        $('#jumlah').val('kosong')
+        $('#jumlah').attr('disabled', true)
+        on = 0
+    }else{
+        $('#jumlah').removeClass('bg-disabled')
+        on = 1
+    }
+})

@@ -101,8 +101,10 @@
                 <input type="text" class="form-control" id="maksud" name="maksud" required>
             </div>
             <div class="mb-3">
-                <label for="jumlah" class="form-label">Tanggal</label>
-                <input type="text" class="form-control date-range" id="jumlah" name="jumlah" required>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control date-range" id="jumlah" name="jumlah">
+                    <span class="input-group-text" id="null-tanggal" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Kosongkan Tanggal"><i class="fa fa-trash"></i>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

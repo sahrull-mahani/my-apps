@@ -14,7 +14,7 @@
     <!-- toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- my style -->
-    <link rel="stylesheet" href="<?= site_url('assets/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= site_url('assets/css/styles.css') ?>">
 </head>
 
 <body>

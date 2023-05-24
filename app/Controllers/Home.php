@@ -68,6 +68,8 @@ class Home extends BaseController
         $html = view('pdf/main', $data);
         $mpdf->WriteHTML($html);
 
-        return redirect()->to($mpdf->Output());
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $mpdf->Output('SPT.pdf','I');
+        // return redirect()->to($mpdf->Output());
     }
 }

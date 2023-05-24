@@ -9,7 +9,7 @@ class Home extends BaseController
         return view('welcome_message');
     }
 
-    public function print()
+    public function print_spt()
     {
         $to = $this->request->getPost('to');
         $font = $this->request->getPost('font');
@@ -69,7 +69,7 @@ class Home extends BaseController
         $mpdf->defaultheaderline = 0;
         $mpdf->SetHeader($header);
 
-        $html = view('pdf/main', $data);
+        $html = view('pdf/spt', $data);
         $mpdf->WriteHTML($html);
 
         $this->response->setHeader('Content-Type', 'application/pdf');

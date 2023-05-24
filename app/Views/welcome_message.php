@@ -38,7 +38,7 @@
     </nav>
 
     <div class="container mt-5">
-        <form action="<?= site_url('print') ?>" method="post">
+        <form action="<?= site_url('print-spt') ?>" method="post">
             <div class="mb-3">
                 <label for="to" class="form-label">Kadis atau bukan?</label>
                 <select class="form-select" id="to" name="to">

@@ -13,7 +13,7 @@
     <div class="mb-3">
         <label for="font" class="form-label">Font</label>
         <select class="form-select" id="font" name="font">
-            <option value="Bookman Old Style" selected>Bookman Old Style</option>
+            <option value="bookmanoldstyle" selected>Bookman Old Style</option>
             <option value="tahoma">Tahoma</option>
         </select>
     </div>

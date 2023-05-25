@@ -199,7 +199,7 @@
             <?php if ($to == 'kadis') : ?>
                 <table class="tb-100 mt-1">
                     <tr>
-                        <td align="center" class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up">Bupati Bolaang Mongondow Utara</span></td>
+                        <td align="center" class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></td>
                     </tr>
                     <tr>
                         <td align="center" class="fw-bold kop-second text-up">Sekertaris Daerah Kabupaten</td>
@@ -472,7 +472,7 @@
     <tr>
         <td colspan="6" class="text-center">
             &nbsp;
-            <p class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up">Bupati Bolaang Mongondow Utara</span></p>
+            <p class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></p>
             <p class="fw-bold kop-second tb-td-h-0 text-up">Sekertaris Daerah Kabupaten</p>
             <p class="fw-bold kop-second tb-td-h-0">Ub.</p>
             <br><br><br><br><br><br>

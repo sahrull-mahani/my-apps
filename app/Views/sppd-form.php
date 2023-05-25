@@ -21,17 +21,6 @@
         <label for="nomor" class="form-label">Nomor</label>
         <input type="number" min="1" class="form-control" id="nomor" name="nomor">
     </div>
-    <div>
-        <label for="dasar" class="form-label">Dasar</label>
-        <input type="text" class="form-control" id="dasar" name="dasar">
-    </div>
-    <div class="copy-text mt-1">
-        <div class="input-group mb-3">
-            <input type="text" id="copy-text" class="form-control bg-disabled" readonly role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salin ke papan klip" value="Surat KPP Pratama Kotamobagu nomor : S-1884/KPP.1607/2022 dan Surat KPP Pratama Kotamobagu Nomor : S-33/KPP.1607/2023 Tentang Imbauan Pemenuhan Kewajiban Perpajakan Instansi Pemerintah Daerah." />
-            <span class="input-group-text" id="btn-copy-clip" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salin ke papan klip"><i class="fa fa-clone"></i>
-            </span>
-        </div>
-    </div>
     <div class="wrapper mb-3">
         <label>Kepada</label>
         <div class="element">

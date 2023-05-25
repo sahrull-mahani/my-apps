@@ -48,6 +48,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="<?= site_url('assets/js/script.js') ?>"></script>
+    <?php if (isset($copy)) : ?>
+        <script src="<?= site_url('assets/js/copy-text.js') ?>"></script>
+    <?php endif ?>
 </body>
 
 </html>

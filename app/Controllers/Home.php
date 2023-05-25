@@ -8,6 +8,7 @@ class Home extends BaseController
     {
         $data = [
             'judul'         => 'SPT FORM',
+            'copy'          => true,
             'spt_active'    => 'active'
         ];
         return view('spt-form', $data);
@@ -87,7 +88,6 @@ class Home extends BaseController
 
         $this->response->setHeader('Content-Type', 'application/pdf');
         $mpdf->Output('SPT.pdf', 'I');
-        // return redirect()->to($mpdf->Output());
     }
 
     public function print_sppd()
@@ -108,7 +108,6 @@ class Home extends BaseController
                 'pangkat' => $pangkat[$key] ?? null,
             ]);
         }
-        $dasar = $this->request->getPost('dasar');
         $jumlah = $this->request->getPost('jumlah');
         if ($jumlah === null || $jumlah == 'kosong') {
             $jumlah = null;
@@ -116,7 +115,6 @@ class Home extends BaseController
         $data = [
             'to'        => $to,
             'nomor'     => empty($nomor) ? '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' : sprintf('%02d', $nomor),
-            'dasar'     => !empty($dasar) ? [$dasar] : null,
             'kepada'    => $kepada,
             'angkutan'  => $this->request->getPost('angkutan'),
             'tujuan'    => $this->request->getPost('tujuan'),
@@ -150,6 +148,5 @@ class Home extends BaseController
 
         $this->response->setHeader('Content-Type', 'application/pdf');
         $mpdf->Output('SPT.pdf', 'I');
-        // return redirect()->to($mpdf->Output());
     }
 }

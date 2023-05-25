@@ -59,6 +59,22 @@ defined('CI_DEBUG') || define('CI_DEBUG', true);
 // defined('CI_DEBUG') || define('CI_DEBUG', false);
 ```
 
+# Kalau menggunakan mpdf
+```javascript
+composer require mpdf/mpdf
+```
+- pastikan menggunakan code dibawah ini
+```javascript
+$this->response->setHeader('Content-Type', 'application/pdf');
+$mpdf->Output('SPT.pdf', 'I');
+```
+`dari pada`
+```javascript
+return redirect()->to($mpdf->Output());
+```
+
+- menambahkan font baru ubah di `vendor\mpdf\mpdf\src\config\FontVariable.php`
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?

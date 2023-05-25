@@ -72,12 +72,15 @@ $('#to').on('change', function () {
     switch (val) {
         case 'kadis':
             $('#nip').show()
+            $('#nip').find('input').attr('required')
             break
         case 'thl':
             $('#nip').hide()
+            $('#nip').find('input').removeAttr('required')
             break
         case 'pns':
             $('#nip').show()
+            $('#nip').find('input').attr('required')
             break
         default:
             alert('other')
@@ -86,13 +89,13 @@ $('#to').on('change', function () {
 })
 
 var on = 1
-$('#null-tanggal').on('click', function() {
+$('#null-tanggal').on('click', function () {
     if (on == 1) {
         $('#jumlah').addClass('bg-disabled')
         $('#jumlah').val('kosong')
         $('#jumlah').attr('disabled', true)
         on = 0
-    }else{
+    } else {
         $('#jumlah').removeClass('bg-disabled')
         on = 1
     }

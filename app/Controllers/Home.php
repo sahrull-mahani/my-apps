@@ -12,7 +12,7 @@ class Home extends BaseController
         ];
         return view('spt-form', $data);
     }
-    
+
     public function sppd()
     {
         $data = [
@@ -34,10 +34,10 @@ class Home extends BaseController
         $kepada = [];
         foreach ($nama as $key => $row) {
             array_push($kepada, (object)[
-                'nama'=>$row,
-                'jabatan'=>$jabatan[$key],
-                'nip'=>$nip[$key] ?? null,
-                'pangkat'=>$pangkat[$key] ?? null,
+                'nama' => $row,
+                'jabatan' => $jabatan[$key],
+                'nip' => $nip[$key] ?? null,
+                'pangkat' => $pangkat[$key] ?? null,
             ]);
         }
         $dasar = $this->request->getPost('dasar');
@@ -86,7 +86,7 @@ class Home extends BaseController
         $mpdf->WriteHTML($html);
 
         $this->response->setHeader('Content-Type', 'application/pdf');
-        $mpdf->Output('SPT.pdf','I');
+        $mpdf->Output('SPT.pdf', 'I');
         // return redirect()->to($mpdf->Output());
     }
 
@@ -102,10 +102,10 @@ class Home extends BaseController
         $kepada = [];
         foreach ($nama as $key => $row) {
             array_push($kepada, (object)[
-                'nama'=>$row,
-                'jabatan'=>$jabatan[$key],
-                'nip'=>$nip[$key] ?? null,
-                'pangkat'=>$pangkat[$key] ?? null,
+                'nama' => $row,
+                'jabatan' => $jabatan[$key],
+                'nip' => $nip[$key] ?? null,
+                'pangkat' => $pangkat[$key] ?? null,
             ]);
         }
         $dasar = $this->request->getPost('dasar');
@@ -118,10 +118,12 @@ class Home extends BaseController
             'nomor'     => empty($nomor) ? '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' : sprintf('%02d', $nomor),
             'dasar'     => !empty($dasar) ? [$dasar] : null,
             'kepada'    => $kepada,
+            'angkutan'  => $this->request->getPost('angkutan'),
             'tujuan'    => $this->request->getPost('tujuan'),
+            'dari'      => $this->request->getPost('dari'),
             'maksud'    => $this->request->getPost('maksud'),
             'jumlah'    => $jumlah,
-            'biaya'     => 'APBD Tahun ' . date('Y')
+            'biaya'     => 'APBD Tahun ' . date('Y'),
         ];
         $format = [
             'format'    => 'Legal',
@@ -147,7 +149,7 @@ class Home extends BaseController
         $mpdf->WriteHTML($html);
 
         $this->response->setHeader('Content-Type', 'application/pdf');
-        $mpdf->Output('SPT.pdf','I');
+        $mpdf->Output('SPT.pdf', 'I');
         // return redirect()->to($mpdf->Output());
     }
 }

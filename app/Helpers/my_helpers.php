@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\elementType;
+
 function getBulan($bulan)
 {
     switch ($bulan) {
@@ -123,7 +125,7 @@ function terbilang($nilai) {
     return $hasil;
 }
 
-function tmtDate($tmt)
+function tmtDate($tmt, $tipe)
 {
     $tmt = explode(' - ', $tmt);
     $starts = $tmt[0];
@@ -134,5 +136,14 @@ function tmtDate($tmt)
     $year = date('Y', strtotime($starts)) == date('Y', strtotime($ends)) ? date('Y', strtotime($starts)) : date('Y');
     $hari = date('d', strtotime($ends)) - date('d', strtotime($starts)) + 1;
 
-    return "$hari (" . ucwords(terbilang($hari)) . ") hari TMT $start s/d $end $year";
+    if ($tipe == 'spt') {
+        return "$hari (" . ucwords(terbilang($hari)) . ") hari TMT $start s/d $end $year";
+    }else{
+        $sppd = [
+            'lama'  => "$hari (" . ucwords(terbilang($hari)) . ") hari",
+            'start' => "$start " . date('Y'),
+            'end'   => "$end " . date('Y')
+        ];
+        return (object)$sppd;
+    }
 }

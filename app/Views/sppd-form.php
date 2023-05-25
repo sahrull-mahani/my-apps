@@ -1,6 +1,7 @@
 <?= $this->extend('index'); ?>
 <?= $this->section('content'); ?>
 <form action="<?= site_url('print-sppd') ?>" method="post">
+    <?= csrf_field() ?>
     <div class="mb-3">
         <label for="to" class="form-label">Kadis atau bukan?</label>
         <select class="form-select" id="to" name="to">
@@ -37,13 +38,13 @@
             <div class="input-group mb-1">
                 <span class="input-group-text" id="basic-addon1">Nama</span>
                 <input type="text" class="form-control" placeholder="Nama" name="nama[]" required>
-                <span class="input-group-text">Jabatan</span>
+                <span class="input-group-text">Jabatan/Instansi</span>
                 <input type="text" class="form-control" placeholder="Jabatan" name="jabatan[]" required>
             </div>
             <div class="input-group mb-1" id="nip">
                 <span class="input-group-text" id="basic-addon1">NIP</span>
                 <input type="text" class="form-control" placeholder="NIP" name="nip[]" required>
-                <span class="input-group-text">Pangkat</span>
+                <span class="input-group-text">Pangkat dan Golongan</span>
                 <input type="text" class="form-control" placeholder="Pangkat" name="pangkat[]" required>
             </div>
         </div>
@@ -55,14 +56,24 @@
         </div>
     </div>
     <div class="mb-3">
-        <label for="tujuan" class="form-label">Tujuan</label>
-        <input type="text" class="form-control" id="tujuan" name="tujuan" required>
+        <label for="angkutan" class="form-label">Alat Angkut</label>
+        <input type="text" class="form-control" id="angkutan" name="angkutan" required>
+    </div>
+    <div class="mb-3">
+        <label for="tujuan" class="form-label">Tujuan & Dari</label>
+        <div class="input-group mb-3">
+            <span for="tujuan" class="input-group-text">Tujuan</span>
+            <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder="Tujuan">
+            <span for="dari" class="input-group-text">Berangkat Dari</span>
+            <input type="text" class="form-control" id="dari" name="dari" placeholder="Berangkat Dari..">
+        </div>
     </div>
     <div class="mb-3">
         <label for="maksud" class="form-label">Maksud</label>
         <input type="text" class="form-control" id="maksud" name="maksud" required>
     </div>
     <div class="mb-3">
+        <label for="jumlah" class="form-label">Jumlah</label>
         <div class="input-group mb-3">
             <input type="text" class="form-control date-range" id="jumlah" name="jumlah">
             <span class="input-group-text" id="null-tanggal" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Kosongkan Tanggal"><i class="fa fa-trash"></i>

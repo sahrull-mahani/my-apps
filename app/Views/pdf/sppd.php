@@ -103,7 +103,7 @@
         <td class="border-right-1 text-center" width="30">5.</td>
         <td>Alat Angkut yang dipergunakan</td>
         <td width="10">:</td>
-        <td>Angkutan Darat</td>
+        <td><?= $angkutan ?></td>
     </tr>
     <tr>
         <td class="border-right-1 text-center" width="30">6.</td>
@@ -116,7 +116,7 @@
             <p>:</p>
         </td>
         <td>
-            <p><?= 'Boroko' ?></p>
+            <p><?= $dari ?></p>
             <p><?= $tujuan ?></p>
         </td>
     </tr>
@@ -133,9 +133,15 @@
             <p>:</p>
         </td>
         <td>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) hari</p>
-            <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getBulan(date('m')) . ' ' . date('Y') ?></p>
-            <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getBulan(date('m')) . ' ' . date('Y') ?></p>
+            <?php if ($jumlah === null) : ?>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) hari</p>
+                <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getBulan(date('m')) . ' ' . date('Y') ?></p>
+                <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getBulan(date('m')) . ' ' . date('Y') ?></p>
+            <?php else : ?>
+                <p><?= tmtDate($jumlah, 'sppd')->lama ?></p>
+                <p><?= tmtDate($jumlah, 'sppd')->start ?></p>
+                <p><?= tmtDate($jumlah, 'sppd')->end ?></p>
+            <?php endif ?>
         </td>
     </tr>
 </table>
@@ -202,7 +208,7 @@
                         <td align="center" class="fw-bold kop-second">Ub.</td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up">Asisten Bidang ADMINISTRASI UMUM</td>
+                        <td align="center" class="fw-bold kop-second text-up"><span style='font-family: "Bookman Old Style", Georgia, serif; font-weight: bold;'>ASISTEN</span>Asisten Bidang ADMINISTRASI UMUM</td>
                     </tr>
                     <tr>
                         <td align="center" class="tb-td-h-2"></td>
@@ -249,7 +255,7 @@
     <tr>
         <td width="5%" rowspan="5"></td>
         <td width="20%"></td>
-        <td width="1%"></td>
+        <td width="6%"></td>
         <td width="25%"></td>
         <td width="20%">SPD No.</td>
         <td width="5%">:</td>
@@ -261,7 +267,7 @@
         <td width="25%"></td>
         <td width="20%">Berangkat dari</td>
         <td width="5%">:</td>
-        <td>Boroko</td>
+        <td><?= $dari ?></td>
     </tr>
     <tr>
         <td width="20%"></td>
@@ -269,7 +275,7 @@
         <td width="25%"></td>
         <td width="20%">Pada Tanggal</td>
         <td width="5%">:</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;) <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp; <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
     </tr>
     <tr>
         <td width="20%"></td>
@@ -291,18 +297,18 @@
         <td width="5%" rowspan="6">I</td>
         <td width="20%">Tiba di</td>
         <td width="1%">:</td>
-        <td width="25%">Gorontalo</td>
+        <td width="25%"><?= $tujuan ?></td>
         <td width="20%">Berangkat Dari</td>
         <td width="5%">:</td>
-        <td>Gorontalo</td>
+        <td><?= $tujuan ?></td>
     </tr>
     <tr>
         <td width="20%">Pada Tanggal</td>
         <td width="1%">:</td>
-        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;) <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
         <td width="20%">Pada Tanggal</td>
         <td width="5%">:</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;) <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp; <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
     </tr>
     <tr>
         <td width="20%">Kepala</td>
@@ -310,7 +316,7 @@
         <td width="25%"></td>
         <td width="20%">Ke</td>
         <td width="5%">:</td>
-        <td>Boroko</td>
+        <td><?= $dari ?></td>
     </tr>
     <tr>
         <td width="20%"></td>
@@ -447,7 +453,7 @@
         <td width="5%" rowspan="4">IV</td>
         <td width="20%">Tiba / Kembali</td>
         <td width="1%">:</td>
-        <td width="25%">Boroko</td>
+        <td width="25%"><?= $dari ?></td>
         <td width="20%"></td>
         <td width="5%"></td>
         <td></td>

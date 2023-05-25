@@ -1,6 +1,7 @@
 <?= $this->extend('index') ?>
 <?= $this->section('content') ?>
 <form action="<?= site_url('print-spt') ?>" method="post">
+    <?= csrf_field() ?>
     <div class="mb-3">
         <label for="to" class="form-label">Kadis atau bukan?</label>
         <select class="form-select" id="to" name="to">

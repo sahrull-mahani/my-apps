@@ -42,14 +42,14 @@
                     <td>I,II,III,IV</td>
                 </tr>
                 <tr>
-                    <td width="110">Kode No.</td>
+                    <td width="110"><?= $to == 'kadis' ? 'Kode No.' : 'Lampiran' ?></td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $to == 'kadis' ? '' : '-' ?></td>
                 </tr>
                 <tr>
                     <td width="110">Nomor</td>
                     <td>:</td>
-                    <td><?= "090/$nomor/KOMINFO/" . bulantoromawi(date('m')) . date('/Y') ?></td>
+                    <td><?= "090/$nomor/" . ($to == 'kadis' ? 'SETDAKAB/' : 'KOMINFO/') . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . date('/Y') ?></td>
                 </tr>
             </table>
         </td>
@@ -62,9 +62,9 @@
 <table class="tb-100 mt-2 border-1 reset-table kop-second tb-padding-1 tb-v-top border-top-1">
     <tr>
         <td class="border-right-1 text-center" width="30">1.</td>
-        <td>Pejabatyang memberi perintah</td>
+        <td>Pejabat yang memberi perintah</td>
         <td width="10">:</td>
-        <td>Bupati Bolaang Mongondow Utara</td>
+        <td><?= $to == 'kadis' ? 'Bupati Bolaang Mongondow Utara' : 'Kepala Dinas Komunikasi Informatika dan persandian' ?></td>
     </tr>
     <tr>
         <td class="border-right-1 text-center" width="30">2.</td>
@@ -88,7 +88,7 @@
             <p>:</p>
         </td>
         <td>
-            <p><?= $kepada[0]->pangkat ?></p>
+            <p><?= $to == 'kadis' ? $kepada[0]->pangkat : '-' ?></p>
             <p><?= $kepada[0]->jabatan ?></p>
             <p>Kab. Bolaang Mongondow Utara</p>
         </td>
@@ -135,8 +135,8 @@
         <td>
             <?php if ($jumlah === null) : ?>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) hari</p>
-                <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getBulan(date('m')) . ' ' . date('Y') ?></p>
-                <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . getBulan(date('m')) . ' ' . date('Y') ?></p>
+                <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' . date('Y') ?></p>
+                <p><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' . date('Y') ?></p>
             <?php else : ?>
                 <p><?= tmtDate($jumlah, 'sppd')->lama ?></p>
                 <p><?= tmtDate($jumlah, 'sppd')->start ?></p>
@@ -192,7 +192,7 @@
                 <tr>
                     <td>Pada Tanggal</td>
                     <td>:</td>
-                    <td><?= date('d') . ' ' . getBulan(date('m')) . ' ' . date('Y') ?></td>
+                    <td><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . date('Y') ?></td>
                 </tr>
             </table>
 
@@ -208,7 +208,7 @@
                         <td align="center" class="fw-bold kop-second">Ub.</td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up"><span style='font-family: "Bookman Old Style", Georgia, serif; font-weight: bold;'>ASISTEN</span>Asisten Bidang ADMINISTRASI UMUM</td>
+                        <td align="center" class="fw-bold kop-second text-up">Asisten Bidang ADMINISTRASI UMUM</td>
                     </tr>
                     <tr>
                         <td align="center" class="tb-td-h-2"></td>
@@ -259,7 +259,7 @@
         <td width="25%"></td>
         <td width="20%">SPD No.</td>
         <td width="5%">:</td>
-        <td>094/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Setdakab/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<?= date('Y') ?></td>
+        <td>094/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<?= $to == 'kadis' ? 'Setdakab' : 'Kominfo' ?>/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<?= date('Y') ?></td>
     </tr>
     <tr>
         <td width="20%"></td>
@@ -275,7 +275,7 @@
         <td width="25%"></td>
         <td width="20%">Pada Tanggal</td>
         <td width="5%">:</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp; <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= date('Y') ?></td>
     </tr>
     <tr>
         <td width="20%"></td>
@@ -305,10 +305,10 @@
     <tr>
         <td width="20%">Pada Tanggal</td>
         <td width="1%">:</td>
-        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= date('Y') ?></td>
         <td width="20%">Pada Tanggal</td>
         <td width="5%">:</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp; <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= date('Y') ?></td>
     </tr>
     <tr>
         <td width="20%">Kepala</td>
@@ -461,7 +461,7 @@
     <tr>
         <td width="20%">Pada Tanggal</td>
         <td width="1%">:</td>
-        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;) <?= getBulan(date('m')) . ' ' . date('Y') ?></td>
+        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?= date('Y') ?></td>
         <td width="20%"></td>
         <td width="5%"></td>
         <td></td>
@@ -475,6 +475,7 @@
             <p class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></p>
             <p class="fw-bold kop-second tb-td-h-0 text-up">Sekertaris Daerah Kabupaten</p>
             <p class="fw-bold kop-second tb-td-h-0">Ub.</p>
+            <p class="fw-bold kop-second tb-td-h-0 text-up">Asisten Bidang ADMINISTRASI UMUM</p>
             <br><br><br><br><br><br>
             <p class="fw-bold kop-second tb-td-h-0 fs-underline">UNTENG DATUNGSOLANG, S.Pd.M.Si</p>
             <p class="fw-bold kop-second tb-td-h-0 text-up">Pembina Utama Muda</p>

@@ -1,8 +1,8 @@
 <?php if ($to == 'kadis') : ?>
-    <div class="kop-second fw-bold text-center">Nomor: <?= "090/$nomor/KOMINFO/" . bulantoromawi(date('m')) . date('/Y') ?></div>
+    <div class="kop-second fw-bold text-center">Nomor: <?= "090/$nomor/SETDAKAB/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . date('/Y') ?></div>
 <?php else : ?>
     <div class="kop-first fw-bold fs-underline text-up text-center">surat perintah tugas</div>
-    <div class="kop-second fw-bold text-center mb-2">Nomor: <?= "090/$nomor/KOMINFO/" . bulantoromawi(date('m')) . date('/Y') ?></div>
+    <div class="kop-second fw-bold text-center mb-2">Nomor: <?= "090/$nomor/KOMINFO/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . date('/Y') ?></div>
 <?php endif ?>
 
 <table class="tb-100 tb-v-top">
@@ -108,7 +108,7 @@
     <tr>
         <td width="180">Jumlah Hari</td>
         <td width="30">:</td>
-        <td><?= $jumlah !== null ? tmtDate($jumlah, 'spt') : '&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) hari TMT &nbsp;&nbsp;&nbsp;&nbsp; Mei s/d &nbsp;&nbsp;&nbsp;&nbsp; Mei 2023' ?></td>
+        <td><?= $jumlah !== null ? tmtDate($jumlah, 'spt') : '&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) hari TMT &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s/d &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2023' ?></td>
     </tr>
 </table>
 
@@ -135,7 +135,7 @@ Agar melaporkan hasil perjalanannya sekembali dari tugas dimaksud. Demikian Peri
                 <tr>
                     <td>Pada Tanggal</td>
                     <td>:</td>
-                    <td><?= date('d') . ' ' . getBulan(date('m')) . ' ' . date('Y') ?></td>
+                    <td><?= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . date('Y') ?></td>
                 </tr>
             </table>
 
@@ -177,4 +177,4 @@ Agar melaporkan hasil perjalanannya sekembali dari tugas dimaksud. Demikian Peri
     </tr>
 </table>
 
-<div class="fs-italic mt-1">Tembusan : Arsip,-</div>
+<div class="fs-italic mt-2">Tembusan : Arsip,-</div>

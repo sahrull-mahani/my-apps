@@ -49,7 +49,7 @@
                 <tr>
                     <td width="110">Nomor</td>
                     <td>:</td>
-                    <td><?= "090/$nomor/" . ($to == 'kadis' ? 'SETDAKAB/' : 'KOMINFO/') . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . date('/Y') ?></td>
+                    <td><?= "090/$nomor/" . ($to == 'thl' ? 'KOMINFO/' : 'SETDAKAB/') . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . date('/Y') ?></td>
                 </tr>
             </table>
         </td>
@@ -62,72 +62,72 @@
 <table class="tb-100 mt-2 border-1 reset-table kop-second tb-padding-1 tb-v-top border-top-1">
     <tr>
         <td class="border-right-1 text-center" width="30">1.</td>
-        <td>Pejabat yang memberi perintah</td>
-        <td width="10">:</td>
+        <td width="340">Pejabat yang memberi perintah</td>
+        <td width="5">:</td>
         <td><?= $to == 'kadis' ? 'Bupati Bolaang Mongondow Utara' : 'Kepala Dinas Komunikasi Informatika dan persandian' ?></td>
     </tr>
     <tr>
-        <td class="border-right-1 text-center" width="30">2.</td>
+        <td class="border-right-1 text-center">2.</td>
         <td>Nama/NIP pegawai yang diperintahkan</td>
-        <td width="10">:</td>
+        <td>:</td>
         <td>
             <p><?= $kepada[0]->nama ?></p>
             <p><?= $kepada[0]->nip ?></p>
         </td>
     </tr>
+</table>
+<table class="tb-100 mt-2 border-1 reset-table kop-second tb-padding-1 tb-v-top no-border-top">
     <tr>
-        <td class="border-right-1 text-center" width="30">3.</td>
-        <td>
-            <p>a) Pangkat dan Golongan</p>
-            <p>b) Jabatan/Instansi</p>
-            <p>c) Tingkat Biaya Perjalanan Dinas</p>
-        </td>
-        <td width="10">
-            <p>:</p>
-            <p>:</p>
-            <p>:</p>
-        </td>
-        <td>
-            <p><?= $to == 'kadis' ? $kepada[0]->pangkat : '-' ?></p>
-            <p><?= $kepada[0]->jabatan ?></p>
-            <p>Kab. Bolaang Mongondow Utara</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="border-right-1 text-center" width="30">4.</td>
-        <td>Maksud Perjalanan Dinas</td>
+        <td class="border-right-1 border-bottom-1 text-center" width="30" rowspan="3">3.</td>
+        <td width="340" style="height: 500px !important;">a) Pangkat dan Golongan</td>
         <td width="10">:</td>
-        <td><?= $maksud ?></td>
+        <td><?= $to == 'kadis' ? $kepada[0]->pangkat : '-' ?></td>
     </tr>
     <tr>
-        <td class="border-right-1 text-center" width="30">5.</td>
-        <td>Alat Angkut yang dipergunakan</td>
-        <td width="10">:</td>
-        <td><?= $angkutan ?></td>
+        <td width="340">b) Jabatan/Instansi</td>
+        <td>:</td>
+        <td><?= $kepada[0]->jabatan ?></td>
     </tr>
     <tr>
-        <td class="border-right-1 text-center" width="30">6.</td>
-        <td>
+        <td class="border-bottom-1" width="340">c) Tingkat Biaya Perjalanan Dinas</td>
+        <td class="border-bottom-1">:</td>
+        <td class="border-bottom-1"></td>
+    </tr>
+    <tr>
+        <td class="border-right-1 border-bottom-1 text-center">4.</td>
+        <td class="border-bottom-1">Maksud Perjalanan Dinas</td>
+        <td class="border-bottom-1">:</td>
+        <td class="border-bottom-1"><?= $maksud ?></td>
+    </tr>
+    <tr>
+        <td class="border-right-1 border-bottom-1 text-center">5.</td>
+        <td class="border-bottom-1">Alat Angkut yang dipergunakan</td>
+        <td class="border-bottom-1">:</td>
+        <td class="border-bottom-1"><?= $angkutan ?></td>
+    </tr>
+    <tr>
+        <td class="border-right-1 border-bottom-1 text-center">6.</td>
+        <td class="border-bottom-1">
             <p>a) Tempat Berangkat</p>
             <p>b) Tempat Tujuan</p>
         </td>
-        <td width="10">
+        <td class="border-bottom-1">
             <p>:</p>
             <p>:</p>
         </td>
-        <td>
+        <td class="border-bottom-1">
             <p><?= $dari ?></p>
             <p><?= $tujuan ?></p>
         </td>
     </tr>
     <tr>
-        <td class="border-right-1 text-center" width="30">7.</td>
+        <td class="border-right-1 text-center">7.</td>
         <td>
             <p>a) Lamanya Perjalanan Dinas</p>
             <p>b) Tanggal Berangkat</p>
             <p>c) Tanggal Harus Kembali/Tiba Di tempat Baru *)</p>
         </td>
-        <td width="10">
+        <td>
             <p>:</p>
             <p>:</p>
             <p>:</p>
@@ -255,7 +255,7 @@
     <tr>
         <td width="5%" rowspan="5"></td>
         <td width="20%"></td>
-        <td width="6%"></td>
+        <td width="8%"></td>
         <td width="25%"></td>
         <td width="20%">SPD No.</td>
         <td width="5%">:</td>
@@ -459,12 +459,9 @@
         <td></td>
     </tr>
     <tr>
-        <td width="20%">Pada Tanggal</td>
-        <td width="1%">:</td>
-        <td width="25%">&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?= date('Y') ?></td>
-        <td width="20%"></td>
-        <td width="5%"></td>
-        <td></td>
+        <td>Pada Tanggal</td>
+        <td>:</td>
+        <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp; (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?= date('Y') ?></td>
     </tr>
     <tr>
         <td colspan="6" class="text-justify">Telah diperiksa dengan keterangan bahwa perjalanan tersebut atas perintahnya dan semata-mata untuk kepentingan jabatan dalam waktu yang sesingkat-singkatnya.</td>

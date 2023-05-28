@@ -17,7 +17,7 @@ class Home extends BaseController
     public function sppd()
     {
         $data = [
-            'judul'         => 'SPT FORM',
+            'judul'         => 'SPPD FORM',
             'sppd_active'   => 'active'
         ];
         return view('sppd-form', $data);
@@ -147,6 +147,6 @@ class Home extends BaseController
         $mpdf->WriteHTML($html);
 
         $this->response->setHeader('Content-Type', 'application/pdf');
-        $mpdf->Output('SPT.pdf', 'I');
+        $mpdf->Output('SPPD.pdf', 'I');
     }
 }

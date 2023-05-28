@@ -91,7 +91,7 @@ th {
 }
 
 .tb-padding-1 tr td {
-    padding: 5px;
+    padding: 5px 0 5px 5px;
 }
 .tb-padding-x-1 tr td {
     padding: 0 5px;

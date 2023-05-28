@@ -202,7 +202,7 @@
                         <td align="center" class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up">Sekertaris Daerah Kabupaten</td>
+                        <td align="center" class="fw-bold kop-second text-up">Sekretaris Daerah Kabupaten</td>
                     </tr>
                     <tr>
                         <td align="center" class="fw-bold kop-second">Ub.</td>
@@ -214,7 +214,7 @@
                         <td align="center" class="tb-td-h-2"></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second fs-underline">UNTENG DATUNGSOLANG, S.Pd.M.Si</td>
+                        <td align="center" class="fw-bold kop-second fs-underline">UTENG DATUNGSOLANG, S.Pd.M.Si</td>
                     </tr>
                     <tr>
                         <td align="center" class="fw-bold kop-second text-up">Pembina Utama Muda</td>
@@ -469,14 +469,23 @@
     <tr>
         <td colspan="6" class="text-center">
             &nbsp;
-            <p class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></p>
-            <p class="fw-bold kop-second tb-td-h-0 text-up">Sekertaris Daerah Kabupaten</p>
-            <p class="fw-bold kop-second tb-td-h-0">Ub.</p>
-            <p class="fw-bold kop-second tb-td-h-0 text-up">Asisten Bidang ADMINISTRASI UMUM</p>
-            <br><br><br><br><br><br>
-            <p class="fw-bold kop-second tb-td-h-0 fs-underline">UNTENG DATUNGSOLANG, S.Pd.M.Si</p>
-            <p class="fw-bold kop-second tb-td-h-0 text-up">Pembina Utama Muda</p>
-            <p class="fw-bold kop-second tb-td-h-0 text-up">NIP. 19670721 199001 1 001</p>
+            <?php if ($to == 'kadis') : ?>
+                <p class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">Sekretaris Daerah Kabupaten</p>
+                <p class="fw-bold kop-second tb-td-h-0">Ub.</p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">Asisten Bidang ADMINISTRASI UMUM</p>
+                <br><br><br><br><br><br>
+                <p class="fw-bold kop-second tb-td-h-0 fs-underline">UTENG DATUNGSOLANG, S.Pd.M.Si</p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">Pembina Utama Muda</p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">NIP. 19670721 199001 1 001</p>
+            <?php else : ?>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">Kepala Dinas</p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">Komunikasi Informatika dan Persandian </p>
+                <br><br><br><br><br><br>
+                <p class="fw-bold kop-second tb-td-h-0 fs-underline">Aang Wardiman, AK.CA.,CertDA.,CTT</p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">Pembina Utama Muda IV/c</p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up">NIP. 19641024 198603 1 002</p>
+            <?php endif ?>
         </td>
     </tr>
     <tr>

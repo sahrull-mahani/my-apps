@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <!-- datatables -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
     <!-- my style -->
     <link rel="stylesheet" href="<?= site_url('assets/css/styles.css') ?>">
 </head>
@@ -32,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link <?= @$sppd_active ?>" href="<?= site_url('sppd-form') ?>">SPPD</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= @$pegawai_active ?>" href="<?= site_url('pegawai-form') ?>">Data Pegawai</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -47,6 +54,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
     <script src="<?= site_url('assets/js/script.js') ?>"></script>
     <?php if (isset($copy)) : ?>
         <script src="<?= site_url('assets/js/copy-text.js') ?>"></script>

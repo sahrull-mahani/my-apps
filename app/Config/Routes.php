@@ -31,9 +31,12 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/sppd-form', 'Home::sppd');
+$routes->get('/pegawai', 'Home::pegawai');
+$routes->get('/pegawai-form', 'Home::pegawai_form');
 
 $routes->post('/print-spt', 'Home::print_spt');
 $routes->post('/print-sppd', 'Home::print_sppd');
+$routes->post('/save-pegawai', 'Home::save_pegawai');
 
 /*
  * --------------------------------------------------------------------

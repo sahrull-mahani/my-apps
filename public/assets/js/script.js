@@ -77,3 +77,5 @@ $('#null-tanggal').on('click', function () {
         on = 1
     }
 })
+
+$('#my-table').DataTable()

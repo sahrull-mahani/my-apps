@@ -130,3 +130,4 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
+$('#my-table').DataTable()

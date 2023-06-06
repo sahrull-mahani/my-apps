@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <!-- coba leaflet js for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- end coba leaflet js for maps -->
     <!-- my style -->
     <link rel="stylesheet" href="<?= site_url('assets/css/styles.css') ?>">
 </head>
@@ -37,6 +40,8 @@
         </div>
     </nav>
 
+    <div id="map"></div>
+
     <div class="container mt-5">
         <?= $this->renderSection('content') ?>
     </div>
@@ -47,6 +52,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- coba leaflet js for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- end coba leaflet js for maps -->
     <script src="<?= site_url('assets/js/script.js') ?>"></script>
     <?php if (isset($copy)) : ?>
         <script src="<?= site_url('assets/js/copy-text.js') ?>"></script>

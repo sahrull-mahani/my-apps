@@ -5,3 +5,7 @@ body {
 .bg-disabled {
     background-color: lightgray;
 }
+
+#map {
+    height: 500px;
+}

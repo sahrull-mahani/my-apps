@@ -47,7 +47,9 @@
         </div>
     </nav>
 
-    <div id="map"></div>
+    <div id="map">
+        <div id="coordinate" class="leaflet-control ms-1 fw-bold"></div>
+    </div>
 
     <div class="container mt-5">
         <?= $this->renderSection('content') ?>
@@ -59,17 +61,16 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<<<<<<< HEAD
     <!-- coba leaflet js for maps -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="<?= site_url('assets/js/my-data.js') ?>"></script>
+    <script src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
     <!-- end coba leaflet js for maps -->
-=======
 
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
->>>>>>> ad5252ef4349409dc9071b4bf418626367a02bbf
     <script src="<?= site_url('assets/js/script.js') ?>"></script>
     <?php if (isset($copy)) : ?>
         <script src="<?= site_url('assets/js/copy-text.js') ?>"></script>

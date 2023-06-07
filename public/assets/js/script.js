@@ -151,8 +151,8 @@ var myIcon = L.icon({
 // const popup = singleMarker.bindPopup('This is my home. ' + singleMarker.getLatLng())
 // popup.addTo(map)
 
-const secondMarker = L.marker([lat, lang], { draggable: true })
-const popup2 = secondMarker.bindPopup(`
+const marker = L.marker([lat, lang], { draggable: true })
+const popup = marker.bindPopup(`
 <strong class="d-block mb-3">This is my home</strong>
 <table class="table table-bordered table-striped">
 <tr>
@@ -163,7 +163,7 @@ const popup2 = secondMarker.bindPopup(`
         <b>:</b>
     </td>
     <td>
-        ${secondMarker.getLatLng()}
+        ${marker.getLatLng()}
     </td>
 </tr>
 <tr>
@@ -174,12 +174,29 @@ const popup2 = secondMarker.bindPopup(`
         <b>:</b>
     </td>
     <td>
-        ${secondMarker.getLatLng()}
+        ${marker.getLatLng()}
     </td>
 </tr>
 </table>
 `)
-popup2.addTo(map)
+popup.addTo(map)
+
+marker.on('dragend', function(e) {
+    const position = marker.getLatLng()
+    marker.setLatLng(position, {
+        draggable: 'true'
+    }).bindPopup(position).update()
+    $('#lat').val(position.lat).keyup()
+    $('#long').val(position.lng).keyup()
+})
+
+$('#lat, #long').on('change', function() {
+    const position = [parseInt($('#lat').val()), parseInt($('#long').val())]
+    marker.setLatLng(position, {
+        draggable: 'true'
+    }).bindPopup(position).update()
+    map.panTo(position)
+})
 
 var baseMap = {
     'Default': tiles,
@@ -191,8 +208,7 @@ var baseMap = {
 }
 
 var overlayMaps = {
-    // 'First Marker': singleMarker,
-    // 'Second Marker': secondMarker,
+    'Marker': marker,
     'Boundaries': boundariesGorontalo,
 }
 

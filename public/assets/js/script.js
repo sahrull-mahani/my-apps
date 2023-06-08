@@ -85,7 +85,15 @@ $('#my-table').DataTable()
 var lat = 0.714093
 var lang = 122.330017
 
-const map = L.map('map').setView([lat, lang], 9);
+const map = L.map('map', {
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+        position: 'topleft'
+    }
+}).setView([lat, lang], 9);
+
+// disabled scroll zoom
+map.scrollWheelZoom.disable()
 
 const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -283,6 +291,21 @@ map.on('click', onMapClick)
 
 map.on('mousemove', function (e) {
     $('#coordinate').html('Lat : ' + e.latlng.lat + ' lang : ' + e.latlng.lng)
+})
+let isShift = false;
+$('#map').on('keydown keyup', function (e) {
+    if (e.which === 16) {
+        isShift = e.type === 'keydown' ? true : false;
+    }
+}).on('mousewheel', function (e) {
+    let zoom = e.originalEvent.deltaY
+    if (isShift) {
+        if (zoom == -100) {
+            map.zoomIn()
+        } else {
+            map.zoomOut()
+        }
+    }
 })
 
 L.Control.geocoder().addTo(map)

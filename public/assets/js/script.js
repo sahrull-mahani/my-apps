@@ -151,7 +151,7 @@ var myIcon = L.icon({
 // const popup = singleMarker.bindPopup('This is my home. ' + singleMarker.getLatLng())
 // popup.addTo(map)
 
-const marker = L.marker([lat, lang], { draggable: true })
+const marker = L.marker([lat, lang], { name: 'marker', draggable: true })
 const popup = marker.bindPopup(`
 <strong class="d-block mb-3">This is my home</strong>
 <table class="table table-bordered table-striped">
@@ -181,7 +181,7 @@ const popup = marker.bindPopup(`
 `)
 popup.addTo(map)
 
-marker.on('dragend', function(e) {
+marker.on('dragend', function (e) {
     const position = marker.getLatLng()
     marker.setLatLng(position, {
         draggable: 'true'
@@ -190,7 +190,7 @@ marker.on('dragend', function(e) {
     $('#long').val(position.lng).keyup()
 })
 
-$('#lat, #long').on('change', function() {
+$('#lat, #long').on('change', function () {
     const position = [parseInt($('#lat').val()), parseInt($('#long').val())]
     marker.setLatLng(position, {
         draggable: 'true'
@@ -214,15 +214,85 @@ var overlayMaps = {
 
 L.control.layers(baseMap, overlayMaps).addTo(map)
 
+var theMarker = {};
 function onMapClick(e) {
     const latlng = e.latlng
     L.popup()
         .setLatLng(e.latlng)
         .setContent(`You clicked the map at ${latlng.toString()}`)
-        .openOn(map);
+    // .openOn(map)
+    if (theMarker != undefined) {
+        map.removeLayer(theMarker);
+    }
+    if (marker) {
+        map.removeLayer(marker)
+    }
+
+    //Add a marker to show where you clicked.
+    theMarker = L.marker([latlng.lat, latlng.lng], { draggable: 'true' })
+        .bindPopup(`
+            <strong class="d-block mb-3">This is my home</strong>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>
+                        <b>This is my office</b>
+                    </td>
+                    <td>
+                        <b>:</b>
+                    </td>
+                    <td>
+                        ${latlng.toString()}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>This is my office 2</b>
+                    </td>
+                    <td>
+                        <b>:</b>
+                    </td>
+                    <td>
+                        ${latlng.toString()}
+                    </td>
+                </tr>
+            </table>
+            <button class="zoom-in-to btn btn-sm btn-primary" data-lat="${latlng.lat}" data-long="${latlng.lng}">zoom to</button>
+            `)
+        .addTo(map)
+
+    $('#lat').val(latlng.lat)
+    $('#long').val(latlng.lng)
+    theMarker.on('dragend', function (e) {
+        const position = theMarker.getLatLng()
+        theMarker.setLatLng(position, {
+            draggable: 'true'
+        }).bindPopup(position).update()
+        $('#lat').val(position.lat).keyup()
+        $('#long').val(position.lng).keyup()
+    })
+
+    $('#lat, #long').on('change', function () {
+        const position = [parseInt($('#lat').val()), parseInt($('#long').val())]
+        theMarker.setLatLng(position, {
+            draggable: 'true'
+        }).bindPopup(position).update()
+        map.panTo(position)
+    })
 }
 map.on('click', onMapClick)
 
 map.on('mousemove', function (e) {
     $('#coordinate').html('Lat : ' + e.latlng.lat + ' lang : ' + e.latlng.lng)
+})
+
+L.Control.geocoder().addTo(map)
+
+$('#map').on('click', '.zoom-in-to', function () {
+    let zoomlevel = map.getZoom()
+    let lat = $(this).data('lat')
+    let long = $(this).data('long')
+    map.setView([lat, long], zoomlevel + 2)
+})
+$('#back').on('click', function () {
+    map.setView([lat, lang], 9)
 })

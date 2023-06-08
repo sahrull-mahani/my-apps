@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- coba leaflet js for maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <!-- end coba leaflet js for maps -->
     <!-- datatables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -50,6 +51,7 @@
     <div id="map">
         <div id="coordinate" class="leaflet-control ms-1 fw-bold"></div>
     </div>
+    <button id="back">back to</button>
     <div class="input-group my-3">
         <span class="input-group-text" for="lat">Latitude</span>
         <input type="text" class="form-control" id="lat" placeholder="latitude...">
@@ -71,6 +73,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="<?= site_url('assets/js/my-data.js') ?>"></script>
     <script src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <!-- end coba leaflet js for maps -->
 
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>

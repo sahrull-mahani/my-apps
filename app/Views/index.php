@@ -52,7 +52,6 @@
     <div id="map">
         <div id="coordinate" class="leaflet-control ms-1 fw-bold"></div>
     </div>
-    <button id="back">Fit</button>
     <div class="input-group my-3">
         <span class="input-group-text" for="lat">Latitude</span>
         <input type="text" class="form-control" id="lat" placeholder="latitude...">

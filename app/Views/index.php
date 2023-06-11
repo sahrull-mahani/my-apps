@@ -44,20 +44,13 @@
                     <li class="nav-item">
                         <a class="nav-link <?= @$pegawai_active ?>" href="<?= site_url('pegawai-form') ?>">Data Pegawai</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= @$maps_active ?>" href="<?= site_url('maps') ?>">Maps</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <div id="map">
-        <div id="coordinate" class="leaflet-control ms-1 fw-bold"></div>
-    </div>
-    <div class="input-group my-3">
-        <span class="input-group-text" for="lat">Latitude</span>
-        <input type="text" class="form-control" id="lat" placeholder="latitude...">
-        <span class="input-group-text" for="long">Longitude</span>
-        <input type="text" class="form-control" id="long" placeholder="longitude...">
-    </div>
 
     <div class="container mt-5">
         <?= $this->renderSection('content') ?>
@@ -82,6 +75,9 @@
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
     <script src="<?= site_url('assets/js/script.js') ?>"></script>
+    <?php if (isset($leaflet)) : ?>
+        <script src="<?= site_url('assets/js/my-leaflet.js') ?>"></script>
+    <?php endif ?>
     <?php if (isset($copy)) : ?>
         <script src="<?= site_url('assets/js/copy-text.js') ?>"></script>
     <?php endif ?>

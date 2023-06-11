@@ -33,6 +33,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/sppd-form', 'Home::sppd');
 $routes->get('/pegawai', 'Home::pegawai');
 $routes->get('/pegawai-form', 'Home::pegawai_form');
+$routes->get('/maps', 'Maps::index');
+$routes->get('/api-data', 'Maps::apidata');
 
 $routes->post('/print-spt', 'Home::print_spt');
 $routes->post('/print-sppd', 'Home::print_sppd');

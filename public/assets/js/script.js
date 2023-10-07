@@ -2,14 +2,16 @@ $('.wrapper').on('click', '.remove', function () {
     if ($('.element').length == 2) {
         $('.remove').attr('disabled', true)
     }
-    $('.remove').closest('.wrapper').find('.element').not(':first').last().remove();
+    $('.remove').closest('.wrapper').find('.element').not(':first').last().remove()
 })
 $('.wrapper').on('click', '.clone', function () {
     $('.remove').removeAttr('disabled')
-    $('.clone').closest('.wrapper').find('.element').first().clone().appendTo('.results');
+    let element = $('.clone').closest('.wrapper').find('.element').last()
+    element.clone().appendTo('.results')
+    element.next().find('input').val('')
 })
 
-var d = new Date($.now());
+var d = new Date($.now())
 var strDate = ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "-" + d.getFullYear()
 $('.date-range').daterangepicker({
     ranges: {
@@ -77,4 +79,10 @@ $('#null-tanggal').on('click', function () {
         on = 1
     }
 })
-$('#my-table').DataTable()
+
+$('.numeric').on('input, keyup', function (event) {
+    if (this.value <= 0) {
+        this.value = 1
+    }
+    this.value = this.value.replace(/[^0-9]/g, '');
+})

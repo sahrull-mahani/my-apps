@@ -11,17 +11,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <!-- coba leaflet js for maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.fullscreen/dist/leaflet.fullscreen.css">
-    <!-- end coba leaflet js for maps -->
-    <!-- datatables -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
+    <!-- bootstrap table -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css">
     <!-- my style -->
     <link rel="stylesheet" href="<?= site_url('assets/css/styles.css') ?>">
 </head>
@@ -42,18 +37,29 @@
                         <a class="nav-link <?= @$sppd_active ?>" href="<?= site_url('sppd-form') ?>">SPPD</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?= @$pegawai_active ?>" href="<?= site_url('pegawai-form') ?>">Data Pegawai</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= @$maps_active ?>" href="<?= site_url('maps') ?>">Maps</a>
+                        <a class="nav-link <?= @$m_pimpinan ?>" href="<?= site_url('pegawai') ?>">Data Pegawai</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <input type="hidden" id="url" value="<?= isset($url) ? site_url("$url") : '' ?>" />
+
     <div class="container mt-5">
         <?= $this->renderSection('content') ?>
+    </div>
+
+    <div id="modal_content" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="modal-size">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <i class="bi bi-x-circle text-danger" data-bs-dismiss="modal" aria-label="Close" role="button"></i>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -62,25 +68,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- coba leaflet js for maps -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="<?= site_url('assets/js/my-data.js') ?>"></script>
-    <script src="https://leafletjs.com/examples/choropleth/us-states.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="https://leaflet.github.io/Leaflet.fullscreen/dist/Leaflet.fullscreen.min.js"></script>
-    <!-- end coba leaflet js for maps -->
-
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
     <script src="<?= site_url('assets/js/script.js') ?>"></script>
-    <?php if (isset($leaflet)) : ?>
-        <script src="<?= site_url('assets/js/my-leaflet.js') ?>"></script>
-    <?php endif ?>
-    <?php if (isset($copy)) : ?>
-        <script src="<?= site_url('assets/js/copy-text.js') ?>"></script>
-    <?php endif ?>
+    <script src="<?= site_url('assets/js/main.js') ?>"></script>
 </body>
 
 </html>

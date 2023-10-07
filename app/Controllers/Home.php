@@ -2,15 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\PemimpinM;
-
 class Home extends BaseController
 {
-    protected $pimpinanm;
-    function __construct()
-    {
-        $this->pimpinanm = new PemimpinM();
-    }
     public function index()
     {
         $data = [
@@ -28,43 +21,6 @@ class Home extends BaseController
             'sppd_active'   => 'active'
         ];
         return view('sppd-form', $data);
-    }
-
-    public function pegawai()
-    {
-        $data = [
-            'judul'         => 'Pegawai',
-            'pegawai'           => $this->pimpinanm->findAll(),
-            'pegawai_active'   => 'active'
-        ];
-        return view('pegawai', $data);
-    }
-    public function pegawai_form()
-    {
-        $data = [
-            'judul'             => 'Pegawai FORM',
-            'pegawai_active'    => 'active'
-        ];
-        return view('pegawai-form', $data);
-    }
-    public function save_pegawai()
-    {
-        $nip = $this->request->getPost('nip');
-        $nama = $this->request->getPost('nama');
-        $jabatan = $this->request->getPost('jabatan');
-        $pangkat = $this->request->getPost('pangkat');
-
-        $data = [
-            'nip'       => $nip,
-            'nama'      => $nama,
-            'jabatan'   => $jabatan,
-            'pangkat'   => $pangkat
-        ];
-        if ($this->pimpinanm->insert($data)) {
-            return redirect()->to('/pegawai');
-        }else{
-            echo 'error';
-        }
     }
 
     public function print_spt()

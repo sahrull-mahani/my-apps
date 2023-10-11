@@ -17,17 +17,13 @@ class PimpinanM extends Model
     protected $deletedField  = 'deleted_at';
 
     protected $validationRules = [
-        'nip' => 'required|max_length[100]',
         'nama' => 'required|max_length[150]',
         'jabatan' => 'required|max_length[200]',
-        'pangkat' => 'required|max_length[150]',
     ];
 
     protected $validationMessages = [
-        'nip' => ['required' => 'tidak boleh kosong', 'max_length' => 'Maximal 100 Karakter'],
         'nama' => ['required' => 'tidak boleh kosong', 'max_length' => 'Maximal 150 Karakter'],
         'jabatan' => ['required' => 'tidak boleh kosong', 'max_length' => 'Maximal 200 Karakter'],
-        'pangkat' => ['required' => 'tidak boleh kosong', 'max_length' => 'Maximal 150 Karakter'],
     ];
     private function _get_datatables()
     {

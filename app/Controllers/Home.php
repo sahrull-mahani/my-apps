@@ -2,13 +2,37 @@
 
 namespace App\Controllers;
 
+use App\Models\PimpinanM;
+
 class Home extends BaseController
 {
+    protected $pimpinanm;
+    function __construct()
+    {
+        $this->pimpinanm = new PimpinanM();
+    }
+    // AJAX-SECTION
+    public function getPimpinan($to, $tipe)
+    {
+        switch ($to) {
+            case 'kadis':
+                $pimpinan = $tipe == 'spt' ? $this->pimpinanm->like('jabatan', 'Bupati')->findAll() : $this->pimpinanm->notLike('jabatan', 'Kepala Dinas')->notLike('jabatan', 'Bupati')->findAll();
+                break;
+            case 'thl':
+                $pimpinan = $this->pimpinanm->like('jabatan', 'Kepala Dinas')->findAll();
+                break;
+            default:
+                $pimpinan = $this->pimpinanm->findAll();
+                break;
+        }
+        return json_encode($pimpinan);
+    }
+    // END AJAX-SECTION
+
     public function index()
     {
         $data = [
             'judul'         => 'SPT FORM',
-            'copy'          => true,
             'spt_active'    => 'active'
         ];
         return view('spt-form', $data);
@@ -32,6 +56,7 @@ class Home extends BaseController
         $jabatan = $this->request->getPost('jabatan');
         $nip = $to != 'thl' ? $this->request->getPost('nip') : null;
         $pangkat = $to != 'thl' ? $this->request->getPost('pangkat') : null;
+        $ttd = $this->request->getPost('ttd');
         $kepada = [];
         foreach ($nama as $key => $row) {
             array_push($kepada, (object)[
@@ -57,7 +82,8 @@ class Home extends BaseController
             'tujuan'    => $this->request->getPost('tujuan'),
             'maksud'    => $this->request->getPost('maksud'),
             'jumlah'    => $jumlah,
-            'biaya'     => 'APBD Tahun ' . date('Y')
+            'biaya'     => 'APBD Tahun ' . date('Y'),
+            'ttd'       => $this->pimpinanm->find($ttd),
         ];
         $format = [
             'format'    => 'Legal',
@@ -99,6 +125,7 @@ class Home extends BaseController
         $jabatan = $this->request->getPost('jabatan');
         $nip = $to != 'thl' ? $this->request->getPost('nip') : null;
         $pangkat = $to != 'thl' ? $this->request->getPost('pangkat') : null;
+        $ttd = $this->request->getPost('ttd');
         $kepada = [];
         foreach ($nama as $key => $row) {
             array_push($kepada, (object)[
@@ -122,6 +149,7 @@ class Home extends BaseController
             'maksud'    => $this->request->getPost('maksud'),
             'jumlah'    => $jumlah,
             'biaya'     => 'APBD Tahun ' . date('Y'),
+            'ttd'       => $this->pimpinanm->find($ttd),
         ];
         $format = [
             'format'    => 'Legal',

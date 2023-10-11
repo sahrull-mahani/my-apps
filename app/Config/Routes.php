@@ -9,6 +9,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/sppd-form', 'Home::sppd');
 $routes->get('/pegawai', 'Pimpinan::index');
 
+$routes->get('get-pimpinan/(:segment)/(:segment)', 'Home::getPimpinan/$1/$2');
+
 $routes->get('/ajax-pimpinan', 'Pimpinan::ajaxPimpinan');
 $routes->get('create-pimpinan', 'Pimpinan::create');
 $routes->get('edit-pimpinan', 'Pimpinan::edit');

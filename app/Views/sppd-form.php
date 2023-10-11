@@ -1,6 +1,6 @@
 <?= $this->extend('index'); ?>
 <?= $this->section('content'); ?>
-<form action="<?= site_url('print-sppd') ?>" method="post">
+<form action="<?= site_url('print-sppd') ?>" method="post" target="_blank">
     <?= csrf_field() ?>
     <div class="mb-3">
         <label for="to" class="form-label">Kadis atau bukan?</label>
@@ -67,6 +67,10 @@
             <input type="text" class="form-control date-range" id="jumlah" name="jumlah">
             <span class="input-group-text" id="null-tanggal" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Kosongkan Tanggal"><i class="fa fa-trash"></i>
         </div>
+    </div>
+    <div class="mb-3">
+        <label for="ttd" class="form-label">Tanda Tangan</label>
+        <select class="form-select" id="ttd" name="ttd"></select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

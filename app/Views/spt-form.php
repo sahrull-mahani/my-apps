@@ -4,7 +4,7 @@
     <?= csrf_field() ?>
     <div class="mb-3">
         <label for="to" class="form-label">Kadis atau bukan?</label>
-        <select class="form-select" id="to" name="to">
+        <select class="form-select" id="to" name="to" data-tipe="spt">
             <option value="kadis" selected>Kadis</option>
             <option value="thl">THL</option>
             <option value="pns">PNS</option>
@@ -21,7 +21,7 @@
         <label for="nomor" class="form-label">Nomor</label>
         <input type="number" min="1" class="form-control" id="nomor" name="nomor">
     </div>
-    <div>
+    <div class="mb-3">
         <label for="dasar" class="form-label">Dasar</label>
         <input type="text" class="form-control" id="dasar" name="dasar">
     </div>
@@ -61,6 +61,10 @@
             <input type="text" class="form-control date-range" id="jumlah" name="jumlah">
             <span class="input-group-text" id="null-tanggal" role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Kosongkan Tanggal"><i class="fa fa-trash"></i>
         </div>
+    </div>
+    <div class="mb-3">
+        <label for="ttd" class="form-label">Tanda Tangan</label>
+        <select class="form-select" id="ttd" name="ttd"></select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -142,13 +142,13 @@ Agar melaporkan hasil perjalanannya sekembali dari tugas dimaksud. Demikian Peri
             <?php if ($to == 'kadis') : ?>
                 <table class="tb-100 mt-1">
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up text-up">Bupati Bolaang Mongondow Utara</td>
+                        <td align="center" class="fw-bold kop-second text-up text-up"><?= $ttd->jabatan ?></td>
                     </tr>
                     <tr>
                         <td align="center" class="tb-td-h-2"></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up">Depri Pontoh</td>
+                        <td align="center" class="fw-bold kop-second text-up"><?= $ttd->nama ?></td>
                     </tr>
                 </table>
             <?php else : ?>
@@ -163,13 +163,13 @@ Agar melaporkan hasil perjalanannya sekembali dari tugas dimaksud. Demikian Peri
                         <td align="center" class="tb-td-h-2"></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold fs-underline kop-second">Aang Wardiman, AK.CA.,CertDA.,CTT</td>
+                        <td align="center" class="fw-bold fs-underline kop-second"><?= $ttd->nama ?></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second">Pembina Utama Muda IV/c</td>
+                        <td align="center" class="fw-bold kop-second"><?= $ttd->pangkat ?></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second">NIP. 19641024 198603 1 002</td>
+                        <td align="center" class="fw-bold kop-second"><?= "NIP. $ttd->nip" ?></td>
                     </tr>
                 </table>
             <?php endif ?>

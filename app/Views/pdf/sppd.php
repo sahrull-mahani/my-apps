@@ -196,7 +196,7 @@
                 </tr>
             </table>
 
-            <?php if ($to == 'kadis') : ?>
+            <?php if ($to == 'kadis' || $to == 'pns') : ?>
                 <table class="tb-100 mt-1">
                     <tr>
                         <td align="center" class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></td>
@@ -204,23 +204,25 @@
                     <tr>
                         <td align="center" class="fw-bold kop-second text-up">Sekretaris Daerah Kabupaten</td>
                     </tr>
-                    <tr>
-                        <td align="center" class="fw-bold kop-second">Ub.</td>
-                    </tr>
-                    <tr>
-                        <td align="center" class="fw-bold kop-second text-up">Asisten Bidang ADMINISTRASI UMUM</td>
-                    </tr>
+                    <?php if (str_contains($ttd->jabatan, 'Asisten')) : ?>
+                        <tr>
+                            <td align="center" class="fw-bold kop-second">Ub.</td>
+                        </tr>
+                        <tr>
+                            <td align="center" class="fw-bold kop-second text-up"><?= $ttd->jabatan ?></td>
+                        </tr>
+                    <?php endif ?>
                     <tr>
                         <td align="center" class="tb-td-h-2"></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second fs-underline">UTENG DATUNGSOLANG, S.Pd.M.Si</td>
+                        <td align="center" class="fw-bold kop-second fs-underline"><?= $ttd->nama ?></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up">Pembina Utama Muda</td>
+                        <td align="center" class="fw-bold kop-second text-up"><?= $ttd->pangkat ?></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second text-up">NIP. 19670721 199001 1 001</td>
+                        <td align="center" class="fw-bold kop-second text-up"><?= "NIP. $ttd->nip" ?></td>
                     </tr>
                 </table>
             <?php else : ?>
@@ -229,19 +231,19 @@
                         <td align="center" class="fw-bold kop-second text-up">Kepala Dinas</td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold text-up kop-second">Komunikasi Informatika dan Persandian</td>
+                        <td align="center" class="fw-bold text-up kop-second"><?= str_replace('Kepala Dinas ', '', $ttd->jabatan) ?></td>
                     </tr>
                     <tr>
                         <td align="center" class="tb-td-h-2"></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold fs-underline kop-second">Aang Wardiman, AK.CA.,CertDA.,CTT</td>
+                        <td align="center" class="fw-bold fs-underline kop-second"><?= $ttd->nama ?></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second">Pembina Utama Muda IV/c</td>
+                        <td align="center" class="fw-bold kop-second"><?= $ttd->pangkat ?></td>
                     </tr>
                     <tr>
-                        <td align="center" class="fw-bold kop-second">NIP. 19641024 198603 1 002</td>
+                        <td align="center" class="fw-bold kop-second"><?= "NIP. $ttd->nip" ?></td>
                     </tr>
                 </table>
             <?php endif ?>
@@ -469,22 +471,24 @@
     <tr>
         <td colspan="6" class="text-center">
             &nbsp;
-            <?php if ($to == 'kadis') : ?>
+            <?php if ($to == 'kadis' || $to == 'pns') : ?>
                 <p class="fw-bold kop-second tb-td-h-0">a.n. <span class="text-up fw-bold">Bupati Bolaang Mongondow Utara</span></p>
                 <p class="fw-bold kop-second tb-td-h-0 text-up">Sekretaris Daerah Kabupaten</p>
-                <p class="fw-bold kop-second tb-td-h-0">Ub.</p>
-                <p class="fw-bold kop-second tb-td-h-0 text-up">Asisten Bidang ADMINISTRASI UMUM</p>
+                <?php if (str_contains($ttd->jabatan, 'Asisten')) : ?>
+                    <p class="fw-bold kop-second tb-td-h-0">Ub.</p>
+                    <p class="fw-bold kop-second tb-td-h-0 text-up"><?= $ttd->jabatan ?></p>
+                <?php endif ?>
                 <br><br><br><br><br><br>
-                <p class="fw-bold kop-second tb-td-h-0 fs-underline">UTENG DATUNGSOLANG, S.Pd.M.Si</p>
-                <p class="fw-bold kop-second tb-td-h-0 text-up">Pembina Utama Muda</p>
-                <p class="fw-bold kop-second tb-td-h-0 text-up">NIP. 19670721 199001 1 001</p>
+                <p class="fw-bold kop-second tb-td-h-0 fs-underline"><?= $ttd->nama ?></p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up"><?= $ttd->pangkat ?></p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up"><?= "NIP. $ttd->nip" ?></p>
             <?php else : ?>
                 <p class="fw-bold kop-second tb-td-h-0 text-up">Kepala Dinas</p>
-                <p class="fw-bold kop-second tb-td-h-0 text-up">Komunikasi Informatika dan Persandian </p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up"><?= str_replace('Kepala Dinas ', '', $ttd->jabatan) ?></p>
                 <br><br><br><br><br><br>
-                <p class="fw-bold kop-second tb-td-h-0 fs-underline">Aang Wardiman, AK.CA.,CertDA.,CTT</p>
-                <p class="fw-bold kop-second tb-td-h-0 text-up">Pembina Utama Muda IV/c</p>
-                <p class="fw-bold kop-second tb-td-h-0 text-up">NIP. 19641024 198603 1 002</p>
+                <p class="fw-bold kop-second tb-td-h-0 fs-underline"><?= $ttd->nama ?></p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up"><?= $ttd->pangkat ?></p>
+                <p class="fw-bold kop-second tb-td-h-0 text-up"><?= "NIP. $ttd->nip" ?></p>
             <?php endif ?>
         </td>
     </tr>

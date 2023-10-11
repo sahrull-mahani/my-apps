@@ -10,10 +10,10 @@ class Pimpinan extends Migration
     {
         $this->forge->addField([
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
-            'nip' => ['type' => 'char', 'constraint' => 100],
+            'nip' => ['type' => 'char', 'constraint' => 100, 'null' => true],
             'nama' => ['type' => 'char', 'constraint' => 150],
             'jabatan' => ['type' => 'char', 'constraint' => 200],
-            'pangkat' => ['type' => 'char', 'constraint' => 150],
+            'pangkat' => ['type' => 'char', 'constraint' => 150, 'null' => true],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('pimpinan', true);

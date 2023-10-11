@@ -86,3 +86,25 @@ $('.numeric').on('input, keyup', function (event) {
     }
     this.value = this.value.replace(/[^0-9]/g, '');
 })
+
+$.get({
+    url: 'get-pimpinan/' + $('#to').val() + '/' + $('#to').data('tipe'),
+    dataType: 'json',
+    success: function (res) {
+        $.map(res, (val) => {
+            $('#ttd').append(new Option(val.nama, val.id))
+        })
+    }
+})
+$('#to').on('change', function () {
+    $.get({
+        url: 'get-pimpinan/' + $('#to').val()+ '/' + $('#to').data('tipe'),
+        dataType: 'json',
+        success: function (res) {
+            $('#ttd').empty()
+            $.map(res, (val) => {
+                $('#ttd').append(new Option(val.nama, val.id))
+            })
+        }
+    })
+})

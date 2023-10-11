@@ -4,7 +4,7 @@
     <?= csrf_field() ?>
     <div class="mb-3">
         <label for="to" class="form-label">Kadis atau bukan?</label>
-        <select class="form-select" id="to" name="to">
+        <select class="form-select" id="to" name="to" data-tipe="sppd">
             <option value="kadis" selected>Kadis</option>
             <option value="thl">THL</option>
             <option value="pns">PNS</option>

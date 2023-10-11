@@ -67,6 +67,11 @@ $('#to').on('change', function () {
     }
 })
 
+function pad(str, max) {
+    str = str.toString();
+    return str.length < max ? pad("0" + str, max) : str;
+}
+
 var on = 1
 $('#null-tanggal').on('click', function () {
     if (on == 1) {
@@ -75,7 +80,10 @@ $('#null-tanggal').on('click', function () {
         $('#jumlah').attr('disabled', true)
         on = 0
     } else {
+        $('#jumlah').data('daterangepicker').setStartDate(moment().format("MM-DD-YYYY"))
+        $('#jumlah').data('daterangepicker').setEndDate(moment().format("MM-DD-YYYY"))
         $('#jumlah').removeClass('bg-disabled')
+        $('#jumlah').removeAttr('disabled')
         on = 1
     }
 })
@@ -98,7 +106,7 @@ $.get({
 })
 $('#to').on('change', function () {
     $.get({
-        url: 'get-pimpinan/' + $('#to').val()+ '/' + $('#to').data('tipe'),
+        url: 'get-pimpinan/' + $('#to').val() + '/' + $('#to').data('tipe'),
         dataType: 'json',
         success: function (res) {
             $('#ttd').empty()
